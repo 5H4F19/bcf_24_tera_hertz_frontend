@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { geist } from "./lib/font";
@@ -14,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` dark ${geist.variable} `}>{children}</body>
+      <body className={`${geist.variable} `}>{children}</body>
     </html>
   );
 }

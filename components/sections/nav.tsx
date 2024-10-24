@@ -9,8 +9,11 @@ import { geist } from "@/app/lib/font";
 
 const Nav = () => {
   return (
-    <nav className="fixed top-3 left-0 right-0 mx-auto backdrop-blur-md container p-3 rounded-full overflow-hidden z-[1000] flex items-center justify-between w-full">
-      <div>Logo</div>
+    <nav className="fixed top-3 left-0 right-0 mx-auto backdrop-blur-md container p-3 rounded-full overflow-hidden z-[1000] flex items-center justify-between w-[85%]">
+      <div className="flex items-center gap-1">
+        <Image className="h-6 w-6" width={100} height={100} src="/logo.png" alt="" />
+        <p className={cn(geist.className, "text-xl font-bold")}>fleet</p>
+      </div>
       <div
         className={cn(
           geist.className,
@@ -23,8 +26,8 @@ const Nav = () => {
         <Link href="#aboutus">About us</Link>
       </div>
       <div className="flex items-center justify-center gap-3">
-        <Button onClick={() => { }} className="flex group gap-x-2">
-          Get started
+        <Button onClick={() => { }} className="flex border group gap-x-2">
+          Log in
         </Button>
       </div>
     </nav>

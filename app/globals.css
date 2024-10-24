@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "leaflet/dist/leaflet.css";
 
 @layer base {
   :root {
@@ -75,9 +76,8 @@ html {
 }
 
 .bg-hafton {
-  background-color: #1d1d1f;
   opacity: 1;
-  background-image: radial-gradient(#2d2d2d 1px, #1d1d1f 1px);
+  background-image: radial-gradient(#f4f4f4 1px, #f4f4f4 1px);
   background-size: 13px 13px;
 }
 b.highlighted::after {
@@ -99,9 +99,10 @@ b.highlighted::after {
     @apply bg-background text-foreground;
   }
 }
+
 @layer components {
   .container {
-    @apply max-w-7xl;
+    @apply px-10;
   }
 
   .vignette-effect {
@@ -143,11 +144,8 @@ b.highlighted::after {
   border: 3px solid #7c3aed; /* Equivalent to border-violet-500 */
   z-index: 3000;
   border-radius: 9999px; /* Equivalent to rounded-full */
-  transition:
-    height 0.2s ease-in-out,
-    width 0.2s ease-in-out,
-    background-color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out, width 0.2s ease-in-out,
+    background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 .c-hero {
   position: fixed;
@@ -157,11 +155,8 @@ b.highlighted::after {
   border: 3px solid black; /* Override border to black */
   z-index: 3000;
   border-radius: 9999px; /* Equivalent to rounded-full */
-  transition:
-    height 0.2s ease-in-out,
-    width 0.2s ease-in-out,
-    background-color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out, width 0.2s ease-in-out,
+    background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 .c-talk {
   position: fixed;
@@ -175,9 +170,6 @@ b.highlighted::after {
   z-index: 3000;
   border-color: #000;
   border-radius: 9999px; /* Equivalent to rounded-full */
-  transition:
-    height 0.2s ease-in-out,
-    width 0.2s ease-in-out,
-    background-color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out, width 0.2s ease-in-out,
+    background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
