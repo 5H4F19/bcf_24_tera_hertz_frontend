@@ -63,10 +63,15 @@ const MapComponent = () => {
         };
     }, [startPoint, endPoint]);
 
-    return (
+    return (<>
+        <div className="container mx-auto">
+            <h1 className='text-xl font-bold mb-3'>Maps</h1>
+        </div>
         <div className='container w-full mx-auto h-[40vh]'>
             <div className='rounded-2xl' id="map" style={{ height: '100%', width: '100%' }}></div> {/* Fullscreen map container */}
         </div>
+    </>
     );
 };
+
 export default MapComponent;

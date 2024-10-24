@@ -9,6 +9,7 @@ import {
 } from "@radix-ui/react-icons";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -17,7 +18,10 @@ const Footer = () => {
       <div className="h-10"></div>
       <div className="w-full flex lg:flex-row flex-col items-start justify-start">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
-          <div className="text-white text-2xl font-light">Logo</div>
+          <div className="flex items-center gap-1">
+            <Image className="h-6 w-6" width={100} height={100} src="/logo.png" alt="" />
+            <p className={cn(geist.className, "text-xl font-bold")}>fleet</p>
+          </div>
           <Sections />
           <Sections />
         </div>
@@ -31,7 +35,7 @@ const Footer = () => {
         </p>
         <Link
           href="/"
-          className="text-white my-5 lg:my-0 flex hover:items-start duration-75 items-end gap-x-2"
+          className="text-black my-5 lg:my-0 flex hover:items-start duration-75 items-end gap-x-2"
         >
           Back to the top
           <ArrowUpIcon className="h-5 w-5" />
@@ -45,8 +49,8 @@ export default Footer;
 
 const Sections = () => {
   return (
-    <div className="text-gray-100 flex-shrink-0 space-y-3">
-      <p className={cn("text-white text-[10px] font-light uppercase")}>
+    <div className="text-gray-700 flex-shrink-0 space-y-3">
+      <p className={cn("text-black text-[10px] font-light uppercase")}>
         Services
       </p>
       <Link href="/" className="flex text-[14px] items-center gap-x-3">
