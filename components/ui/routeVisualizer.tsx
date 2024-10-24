@@ -1,10 +1,11 @@
 'use client'; // Ensure this runs on the client-side
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import 'leaflet-routing-machine'; // Import the Leaflet Routing Machine
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css'; // Import CSS for routing machine
+import { useGlobalContext } from '@/context';
 
 // Fix the marker icons
 L.Icon.Default.mergeOptions({
@@ -21,10 +22,16 @@ interface LatLng {
 const MapComponent = () => {
     // Define the start and end points (latitude, longitude)
     const startPoint: [number, number] = [22.3573746, 91.7366361]; // Chittagong coordinates
-    const endPoint: [number, number] = [23.7808186, 90.3372881]; // Dhaka coordinates
+    // const endPoint: [number, number] = [23.7808186, 90.3372881]; // Dhaka coordinates
+    const [mapInitialized, setMapInitialized] = useState(false);
+
+    const { dest } = useGlobalContext()
+    const endPoint = dest
 
     // Initialize the routing on map load
     useEffect(() => {
+
+        if (!endPoint || mapInitialized) return;
         const map = L.map('map', {
             center: startPoint, // Initial center point
             zoom: 13, // Initial zoom level
@@ -62,5 +69,4 @@ const MapComponent = () => {
         </div>
     );
 };
-
 export default MapComponent;

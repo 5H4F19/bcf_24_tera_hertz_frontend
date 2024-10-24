@@ -39,7 +39,6 @@ const LocationSearch: React.FC<LocationSearchProps> = ({ onSelectLocation }) => 
     };
 
     const handleSelect = (location: Location) => {
-        console.log("Selected location:", [Number(location.lat), Number(location.lon)]);
         setDest([Number(location.lat), Number(location.lon)]);
         setQuery(location.display_name);
         setResults([]);
