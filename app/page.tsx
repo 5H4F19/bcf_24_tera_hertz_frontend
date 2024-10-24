@@ -1,3 +1,7 @@
+import Footer from "@/components/sections/footer";
+import Hero from "@/components/sections/hero";
+import Nav from "@/components/sections/nav";
+
 export default function Home() {
   return (
     <main className="relative flex w-full overflow-hidden bg-[#1d1d1f] min-h-screen flex-col items-center justify-between">
@@ -11,7 +15,10 @@ export default function Home() {
       >
         <div className="absolute bottom-0  w-full bg-gradient-to-b from-transparent to-background h-44 " />
       </div>
+      <Nav />
       <div className="h-24" />
+      <Hero />
+      <Footer />
     </main>
   );
 }
