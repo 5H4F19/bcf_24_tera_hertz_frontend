@@ -25,7 +25,8 @@ const MapComponent = () => {
     // const endPoint: [number, number] = [23.7808186, 90.3372881]; // Dhaka coordinates
     const [mapInitialized, setMapInitialized] = useState(false);
 
-    const { dest } = useGlobalContext()
+
+    const { dest, setOptimalDistance } = useGlobalContext()
     const endPoint = useMemo(() => dest, [dest]);
 
     // Initialize the routing on map load
@@ -55,7 +56,11 @@ const MapComponent = () => {
             const bounds = L.latLngBounds(
                 route.coordinates.map((coord: LatLng) => L.latLng(coord.lat, coord.lng)) // Explicitly define the coord type
             );
-            map.fitBounds(bounds, { padding: [50, 50] }); // Add padding to ensure it fits nicely within the parent
+            map.fitBounds(bounds, { padding: [50, 50] });
+            const distanceInMeters = route.summary.totalDistance; // Distance in meters
+            const distanceInKm = distanceInMeters / 1000; // Convert to kilometers
+            setOptimalDistance(distanceInKm);
+            // Add padding to ensure it fits nicely within the parent
         });
 
         return () => {

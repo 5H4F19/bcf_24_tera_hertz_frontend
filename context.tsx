@@ -20,6 +20,8 @@ interface ContextProps {
     setDate: (date: string) => void;
     transportation: string | null;
     setTransportation: (transportation: Transportation) => void;
+    optimalDistance: number | null
+    setOptimalDistance: (s: number | null) => void
 }
 
 // Create the context
@@ -32,10 +34,11 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
     const [restaurant, setRestaurant] = useState<string | undefined>(undefined);
     const [hotel, setHotel] = useState<string | undefined>(undefined);
     const [date, setDate] = useState<string | undefined>(undefined);
+    const [optimalDistance, setOptimalDistance] = useState<number | null>(null);
     const [transportation, setTransportation] = useState<Transportation>(Transportation.air); // New transportation state
 
     return (
-        <Context.Provider value={{ dest, setDest, days, setDays, restaurant, setRestaurant, hotel, setHotel, date, setDate, transportation, setTransportation }}>
+        <Context.Provider value={{ dest, optimalDistance, setOptimalDistance, setDest, days, setDays, restaurant, setRestaurant, hotel, setHotel, date, setDate, transportation, setTransportation }}>
             {children}
         </Context.Provider>
     );

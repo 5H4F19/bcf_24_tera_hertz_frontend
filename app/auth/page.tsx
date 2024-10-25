@@ -52,7 +52,7 @@ export default function SignupPage() {
 
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-md shadow-md">
+            <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-md">
                 <h2 className="text-2xl font-bold text-center">Signup</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     {/* Full Name Field */}
@@ -64,7 +64,7 @@ export default function SignupPage() {
                             id="fullName"
                             placeholder="John Doe"
                             {...register('fullName')}
-                            className="mt-1"
+                            className="mt-1 border"
                         />
                         {errors.fullName && (
                             <span className="text-red-500 text-sm">
@@ -82,7 +82,7 @@ export default function SignupPage() {
                             id="phone"
                             placeholder="1234567890"
                             {...register('phone')}
-                            className="mt-1"
+                            className="mt-1 border"
                         />
                         {errors.phone && (
                             <span className="text-red-500 text-sm">
@@ -100,7 +100,7 @@ export default function SignupPage() {
                             id="email"
                             placeholder="johndoe@example.com"
                             {...register('email')}
-                            className="mt-1"
+                            className="mt-1 border"
                         />
                         {errors.email && (
                             <span className="text-red-500 text-sm">
@@ -110,7 +110,7 @@ export default function SignupPage() {
                     </div>
 
                     {/* Submit Button */}
-                    <Button type="submit" className="w-full mt-4">
+                    <Button type="submit" className="w-full mt-4 h-10 rounded-xl">
                         Sign Up
                     </Button>
                 </form>

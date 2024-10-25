@@ -52,18 +52,18 @@ export default function OtpPage() {
 
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-md shadow-md">
+            <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-md">
                 <h2 className="text-2xl font-bold text-center">Enter OTP</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     {/* OTP Field */}
                     <div>
                         <label htmlFor="otp" className="block text-sm font-medium">OTP</label>
-                        <Input id="otp" placeholder="Enter your OTP" {...register('otp')} className="mt-1" />
+                        <Input id="otp" placeholder="Enter your OTP" {...register('otp')} className="mt-1 border" />
                         {errors.otp && <span className="text-red-500 text-sm">{errors.otp.message}</span>}
                     </div>
 
                     {/* Submit Button */}
-                    <Button type="submit" className="w-full mt-4">Verify OTP</Button>
+                    <Button type="submit" className="w-full mt-4 border h-10 rounded-xl">Verify OTP</Button>
                 </form>
             </div>
         </div>

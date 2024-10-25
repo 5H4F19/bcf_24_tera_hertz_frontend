@@ -7,9 +7,11 @@ import { Calendar, Hotel, Navigation, Soup } from "lucide-react"
 import { useEffect, useState } from "react"
 import { format, parseISO } from 'date-fns';
 import Link from "next/link"
+import { useRedirectIsAuthOrNot } from "@/hooks/useAuthentication"
 
 const options = { year: 'numeric', month: 'long', day: 'numeric' };
 const Dashboard = () => {
+
     const [tours, setTours] = useState<any[]>([])
     useEffect(() => {
         const getTours = async () => {

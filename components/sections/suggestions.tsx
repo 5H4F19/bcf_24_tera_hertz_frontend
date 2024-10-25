@@ -6,6 +6,7 @@ import Transports from "./transports"
 import Durations from "./durations"
 import { Estimations } from "./estimatons"
 import { Button } from "../ui/button"
+import Link from "next/link"
 
 export const Suggestions = () => {
     const { dest } = useGlobalContext()
@@ -22,7 +23,9 @@ export const Suggestions = () => {
             <FindRestaurant />
             <Estimations />
             <div className="w-full flex items-center justify-center">
-                <Button className="px-5 py-2 text-lg shadow-lg">Proceed</Button>
+                <Link href={'/confirm'}>
+                    <Button className="px-5 py-2 text-lg shadow-lg">Proceed</Button>
+                </Link>
             </div>
         </div>
     )
