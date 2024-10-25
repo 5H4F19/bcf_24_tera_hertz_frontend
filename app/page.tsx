@@ -17,6 +17,7 @@ export default function Home() {
         <Hero />
         <Suggestions />
         <div className="h-44"></div>
+        {/* <Weather /> */}
         <Footer />
       </main>
     </ContextProvider>

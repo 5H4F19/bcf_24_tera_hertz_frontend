@@ -1,5 +1,5 @@
 'use client'; // Ensure this runs on the client-side
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -21,12 +21,12 @@ interface LatLng {
 
 const MapComponent = () => {
     // Define the start and end points (latitude, longitude)
-    const startPoint: [number, number] = [22.3573746, 91.7366361]; // Chittagong coordinates
+    const startPoint: [number, number] = [23.7808186, 90.3372881]; // Chittagong coordinates
     // const endPoint: [number, number] = [23.7808186, 90.3372881]; // Dhaka coordinates
     const [mapInitialized, setMapInitialized] = useState(false);
 
     const { dest } = useGlobalContext()
-    const endPoint = dest
+    const endPoint = useMemo(() => dest, [dest]);
 
     // Initialize the routing on map load
     useEffect(() => {

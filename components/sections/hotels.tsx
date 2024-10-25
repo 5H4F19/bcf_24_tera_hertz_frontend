@@ -4,12 +4,13 @@ import { useGlobalContext } from '@/context';
 import { Building2 } from 'lucide-react';
 import { Card, CardContent } from '../ui/card';
 import Image from 'next/image';
+import { cn, selected } from '@/lib/utils';
 
 
 const FindHotels: React.FC = () => {
     const [hotels, setHotels] = useState<any[]>([]);
     const [error, setError] = useState<string>('');
-    const { dest } = useGlobalContext()
+    const { dest, hotel, setHotel } = useGlobalContext()
 
     const getNearbyHotels = async (lat: number, lon: number) => {
         const apiKey = process.env.NEXT_PUBLIC_GEO_API // Replace with your GeoAPI key
@@ -36,6 +37,7 @@ const FindHotels: React.FC = () => {
     useEffect(() => {
         if (!dest) return
         fetchHotels(dest);
+        setHotel(hotels[0])
     }, [dest]);
 
     return (
@@ -45,12 +47,12 @@ const FindHotels: React.FC = () => {
             )}
             {error && <p>Error: {error}</p>}
             <ul className='grid grid-cols-3 gap-3'>
-                {hotels.map((hotel, index) => (
-                    <Card key={hotel?.properties?.name} className='space-x-3 p-6 spacep-y-3 flex items-center'>
+                {hotels.map((hotelL, index) => (
+                    <Card onClick={() => setHotel(hotelL)} key={hotelL?.properties?.name} className={cn(selected(hotel === hotelL), 'space-x-3 p-6 spacep-y-3 flex items-center')}>
                         <Image className='w-16 h-auto' width={100} height={100} src="/skyscraper.png" alt='' />
                         <div>
                             <h2 className='text-xs font-medium'>Hotel name</h2>
-                            <h2 className='text-2xl font-medium'>{hotel?.properties?.name}</h2>
+                            <h2 className='text-2xl font-medium'>{hotelL?.properties?.name}</h2>
                             <h2 className='text-xs font-medium mt-1'>Estimated Cost/Day</h2>
                             <h2 className='text-2xl font-medium'>10,131 tk</h2>
                         </div>
